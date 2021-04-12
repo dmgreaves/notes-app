@@ -1,17 +1,25 @@
 class Testing {
-
-isEqual (a, b) {
-  if (a === b) {
-      console.log('Passed');
-      return "Passed";
-  } else {
-      console.log('Failed');
-      return "Failed";
+  constructor() {
+  this.tests = [];
   }
-};
 
-describe (describe) {
-  console.log(describe)
-  return describe
-};
+  isEqual (a, b) {
+    if (a === b) {
+        return "Passed";
+    } else {
+        return "Failed";
+    }
+  };
+
+  runTest (describe, test) {
+    return [describe, test];
+  }
+
+  printTests() {
+    let arr = this.tests;
+    arr.map(function(element) {
+      return console.log(element);
+    });
+  }
+
 };
