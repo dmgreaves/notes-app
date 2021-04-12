@@ -1,15 +1,18 @@
 model of interface:
 
 index.html:
-[ ] Title
-[ ] create note button
-  -> [ ] shows/hides? form to add title and text (automated date added)
-[ ] list of notes, abbreviated
-  -> [ ] button for seeing full note
-  -> [ ] hides list and create, shows full text of note
+[ ] Title 
+[ ] create note button (id="create-note")
+  -> [ ] shows/hides? form (id="save-note") to add title and text (automated date added)
+[ ] list of notes, abbreviated (id="abbreviated-list") 
+  -> [ ] button for seeing full note (class="see-full-text")
+  -> [ ] hides list and create, shows full text of note (id="full-text")
 
-divs:
--
+
+Notes: 
+
+- hardcoded a list of abbreviated notes and buttons in the HTML file to be extracted into interface most likely
+- hardcoded a full note
 
 
 interface.js:
