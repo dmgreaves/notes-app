@@ -12,14 +12,11 @@ class Testing {
   };
 
   runTest (describe, test) {
-    return [describe, test];
+    let htmlReturn = describe + '<br>' + test + '<br>'
+    return htmlReturn
   }
-
-  printTests() {
-    let arr = this.tests;
-    arr.map(function(element) {
-      return console.log(element);
-    });
+  saveTest(describe, test){
+    let testInstance = this.runTest(describe, test);
+    this.tests.push(testInstance);
   }
-
 };
