@@ -4,11 +4,11 @@ class Testing {
   }
 
   isEqual (a, b) {
-    if (a === b) {
-        return "Passed";
-    } else {
-        return "Failed";
-    }
+      if (a === b) {
+          return "Passed";
+      } else {
+          return "Failed";
+      }
   };
 
   isNotEqual (a, b) {

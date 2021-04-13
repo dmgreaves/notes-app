@@ -35,3 +35,10 @@ As a programmer
 I can refresh the page and still see my notes
 So I can remember what I took down
 ```
+
+
+
+     Input         |      Output
+notebook.create()  |       note
+
+
