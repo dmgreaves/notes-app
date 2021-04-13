@@ -20,12 +20,15 @@ interface.js:
 -> [x] event listener to show form, when clicking create note
       id="create-note"
 
-[ ] event listener for create note button
-  -> saves values of title and text
+[x] event listener for create note button
+  -> [x] saves values of title and text
   -> saves date of each note
-  -> calls add note function
-  -> use html div id to save to page
-  -> hides form when saved
+  -> [x] calls saveote function
+  -> [x] use html <p> id to save to fullText to page(with title and text labels)
+  -> [x] hides form when saved
+
+[ ] add note to list as an abbreviation
+
 
 [ ] event listener to click view note
   -> hides list and shows full text of note
