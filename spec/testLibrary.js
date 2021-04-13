@@ -11,6 +11,14 @@ class Testing {
     }
   };
 
+  isNotEqual (a, b) {
+    if (a !== b) {
+        return "Passed";
+    } else {
+        return "Failed";
+    }
+  };
+
   runTest (describe, test) {
     let htmlReturn = describe + '<br>' + test + '<p>'
     return htmlReturn
