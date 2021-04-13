@@ -19,6 +19,15 @@ class Testing {
     }
   };
 
+  arrayContains(a,b) {
+    if(a.includes(b,0)){
+      return "Passed";
+    }
+    else {
+      return "Failed";
+    }
+  }
+
   isInstance (a, b) {
     if (a instanceof b) {
         return "Passed";
