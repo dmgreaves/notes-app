@@ -17,11 +17,12 @@ Notes:
 
 interface.js:
 [x] hide form
--> [ ] event listener to show form, when clicking create note
+-> [x] event listener to show form, when clicking create note
       id="create-note"
 
 [ ] event listener for create note button
-  -> saves values of title, text and date to variables
+  -> saves values of title and text
+  -> saves date of each note
   -> calls add note function
   -> use html div id to save to page
   -> hides form when saved
