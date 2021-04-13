@@ -19,6 +19,14 @@ class Testing {
     }
   };
 
+  isInstance (a, b) {
+    if (a instanceof b) {
+        return "Passed";
+    } else {
+        return "Failed";
+    }
+  };
+
   runTest (describe, test) {
     let htmlReturn = describe + '<br>' + test + '<p>'
     return htmlReturn

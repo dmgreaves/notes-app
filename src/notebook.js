@@ -4,6 +4,7 @@ class Notebook {
   //   this.notes = [];
   // }
   create() {
-    return new Note;
+    let noteInstance = new Note;
+    return noteInstance;
   }
 }
