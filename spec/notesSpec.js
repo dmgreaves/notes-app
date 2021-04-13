@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
   test = new Testing;
+  let note = new Note();
   let errors = [];
 // Add tests here
 //test.saveTest("Describe your test", test.?????(,))
   try {
+    let note1 = new Note("Rio will be a star")
+    test.saveTest("Creating a new note saves text", test.isEqual(note1.text, "Rio will be a star"))
 
-    test.saveTest("Testing if 1 is 1", test.isEqual(1,1));
-    test.saveTest("notebook creates a new note", test.isEqual(notebook.create(), note));
   } catch (err) {
     console.log(err);
     errors.push(err);
