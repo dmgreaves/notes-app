@@ -10,6 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // Prints Tests
-  let result = test.tests.toString();
+  let result = test.printTests();
   document.getElementById("id").innerHTML = result;
 });

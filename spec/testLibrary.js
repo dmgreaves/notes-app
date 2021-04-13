@@ -14,10 +14,14 @@ class Testing {
   runTest (describe, test) {
     let htmlReturn = describe + '<br>' + test + '<p>'
     return htmlReturn
-  }
+  };
 
   saveTest(describe, test){
     let testInstance = this.runTest(describe, test);
     this.tests.push(testInstance);
-  }
+  };
+
+  printTests () {
+    return this.tests.toString().replaceAll(',','');
+  };
 };
