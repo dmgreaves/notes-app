@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <img src="https://images.stockfreeimages.com/970/sfixl/9703493.jpg" alt="parrot-taking-note">
-  <script src="interface.js"></script> 
-  <script src="index.css"></script> 
+  <script src="interface.js"></script>
+  <script src="index.css"></script>
 
   <title>Rio's Pieces of Eight</title>
 </head>
@@ -17,18 +17,18 @@
   </header>
 
   <div id="new-note">
-    <button type="button" id="create-note"> Parrot something ... </button>
-    <form id="save-note">
-      <input type="text" id="title" placeholder="Title"> 
-      <input type="text" id="text" placeholder="What would a parrot say...?" size="100" > 
-      <input type="submit" id="submit-note" value="Save parrot">
+    <button type="button" id="create-note" onclick="showForm()"> Parrot something ... </button>
+    <form hidden id="save-note">
+      <input type="text" id="title" placeholder="Title">
+      <input type="text" id="text" placeholder="What would a parrot say...?" size="100" >
+      <input type="submit" id="submit-note" value="Save parrot" onclick="hideForm">
     </form>
   </div>
 
   <h2>The Parrots</h2>
 
-  <div id="abbreviated-list"> 
-    <ul> 
+  <div id="abbreviated-list">
+    <ul>
       <li>Parrot's deepest and dar...
         <button type="button" class="see-full-text"> See full Parrot </button>
       </li>
@@ -49,17 +49,5 @@
 
 
 
-
-
-
-
-
- 
-
-
-
-  
-
-  
 </body>
 </html>
