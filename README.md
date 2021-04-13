@@ -38,7 +38,10 @@ So I can remember what I took down
 
 
 
+
      Input         |      Output
 notebook.create()  |       note
 
+
+When you click on an abbreviated note you hide all the other div elements
 

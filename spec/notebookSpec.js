@@ -5,11 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
 // Add tests here
 //test.saveTest("Describe your test", test.?????(,))
   try {
-    test.saveTest("Notebook creates a new note", test.isInstance(notebook.create("Parrots", "Rio will be a star"), Note));
-    console.log(notebook.notes);
-    test.saveTest("New notes are saved into the notebook", test.isEqual(notebook.notes[0].text,"Rio will be a star"));
-
-
+    test.saveTest("Notebook creates a new note", test.isInstance(notebook.create("Rio will be a star and Layla will follow"), Note));
+    test.saveTest("New notes are saved into the notebook", test.isEqual(notebook.notes[0].text,"Rio will be a star and Layla will follow"));
+    test.saveTest("Note text is abbreviated", test.isEqual(notebook.abbrev(notebook.notes[0].text),"Rio will be a sta..." ));
   } catch (err) {
     console.log(err);
     errors.push(err);
