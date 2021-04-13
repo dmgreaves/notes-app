@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <img src="https://images.stockfreeimages.com/970/sfixl/9703493.jpg" alt="parrot-taking-note">
-  <script src="interface.js"></script> 
-  <script src="index.css"></script> 
+  <script src="interface.js"></script>
+  <script src="css/style.css"></script>
 
   <title>Rio's Pieces of Eight</title>
 </head>
@@ -17,18 +17,18 @@
   </header>
 
   <div id="new-note">
-    <button type="button" id="create-note"> Parrot something ... </button>
-    <form id="save-note">
-      <input type="text" id="title" placeholder="Title"> 
-      <input type="text" id="text" placeholder="What would a parrot say...?" size="100" > 
-      <input type="submit" id="submit-note" value="Save parrot">
+    <button type="button" id="create-note" onclick="showForm()"> Parrot something ... </button>
+    <form hidden id="save-note">
+      <input type="text" id="titleInput" placeholder="Title">
+      <input type="text" id="textInput" placeholder="What would a parrot say...?" size="100" >
+      <button type="button" id="submit-note" value="Save parrot" onclick="saveNote();" > Save Parrot</button>
     </form>
   </div>
 
   <h2>The Parrots</h2>
 
-  <div id="abbreviated-list"> 
-    <ul> 
+  <div id="abbreviated-list">
+    <ul>
       <li>Parrot's deepest and dar...
         <button type="button" class="see-full-text"> See full Parrot </button>
       </li>
@@ -45,21 +45,10 @@
     <p>
       Parrots have an intricate system of sounds, shrills and squawks that can tell other parrots things, from warning them of predators to telling them there's food in the vicinity.
     </p>
+    <p id="newNote"></p>
   </div>
 
 
 
-
-
-
-
-
- 
-
-
-
-  
-
-  
 </body>
 </html>
