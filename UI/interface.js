@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
   let notebook = new Notebook;
 
+document.getElementById('create-note').addEventListener('click', function (event) {
+  showForm();
+});
+
+
 function hideForm() {
   document.getElementById("save-note").style.display = "none";
 }
