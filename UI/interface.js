@@ -42,10 +42,10 @@ function newupdateNotes() {
   notebook.notes.forEach(function(note){
     var div = document.createElement('div');
     // was div.textContent
-    div.title = note.title;
-    div.title += ": ";
-    div.title += notebook.abbrev(note.text);
-    //div.textContent = note.text;
+    div.textContent = note.title;
+    div.textContent += ": ";
+    div.textContent += notebook.abbrev(note.text);
+    div.title = note.text;
     //div.textContent.style.visibility = "hidden";
     noteList.appendChild(div);
   });
@@ -53,9 +53,12 @@ function newupdateNotes() {
 
 noteList.addEventListener('click', function(event){
   if (event.target !== this) {
+    console.log(event.target.textContent);
     console.log(event.target.title);
-    //title.hide()
-    //textContent.show()
+    // hide all the other div elements on the page (might need a container)
+    // set a div container temporarily to the text of the event.target.title
+    // show that div container
+
   }
 });
 
