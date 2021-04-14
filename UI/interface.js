@@ -18,10 +18,12 @@ function showForm() {
 
 
 function saveNote() {
+
   var titleInput = document.getElementById("titleInput").value;
   var textInput = document.getElementById("textInput").value;
   console.log(titleInput, textInput);
   var abText = notebook.abbrev(textInput);
+  notebook.create(titleInput, textInput);
   printFullNote(titleInput, abText); //this will be moved and called when the show full note function is called
   hideForm();
   //listNote(textInput);

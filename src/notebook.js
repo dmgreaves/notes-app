@@ -3,9 +3,10 @@ class Notebook {
   constructor() {
      this.notes = [];
    }
-  create(text) {
-    let noteInstance = new Note(text);
+  create(title, text) {
+    let noteInstance = new Note(title, text);
     this.notes.push(noteInstance);
+    console.log(this.notes);
     return noteInstance;
   }
 
@@ -13,5 +14,5 @@ class Notebook {
     return text.slice(0,17) + "...";
   }
 
-  
+
 }
