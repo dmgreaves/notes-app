@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {  
+document.addEventListener("DOMContentLoaded", function() {
   let notebook = new Notebook;
   var noteList = document.getElementById("newNote");
 
@@ -47,7 +47,7 @@ function parseNotes() {
   notebook.notes = []
   for (var i = 0; i < window.localStorage.length; i++) {
     let noteText = JSON.parse(window.localStorage.getItem(i));
-    notebook.create("parsing", noteText);
+    notebook.create("", noteText);
   }
 }
 
