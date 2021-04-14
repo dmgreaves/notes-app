@@ -4,12 +4,19 @@ class Notebook {
      this.notes = [];
    }
 
+  create(title, text) {
+    let emoji = this.emojify(text)  // why can't we use that string in instantiatng a new note
+    let noteInstance = new Note(title, text = emoji);
+    this.notes.push(noteInstance);
+    console.log(this.notes)
+    return noteInstance;
+  }
 
   abbrev(text) {
     return text.slice(0,17) + "...";
   }
 
-  // from https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+  //from https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
   async postData(url = '', data = {}) {
       console.log(2)
       const response = await fetch(url, {
@@ -36,10 +43,12 @@ class Notebook {
                 console.log(data); // JSON data parsed by `data.json()` call
                 console.log(data.emojified_text);
                 return data.emojified_text;
-
             });
 
         console.log(3)
     }
-
 }
+
+/* We know that emojify is printing the emojified_text at the end
+   We can call emojify in the create function but we do not get a result
+   */
