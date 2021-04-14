@@ -32,17 +32,6 @@ function saveNote() {
   hideForm();
   //listNote(textInput);
 }
-
-// function updateNotes () {
-//     document.getElementById("newNote").innerHTML = "";
-//     notebook.notes.forEach(function(element) {
-//       div = document.createElement('div');
-//       document.getElementById(`${num}`).innerHTML += element.title + '<br>';
-//       document.getElementById(`${num}`).innerHTML += notebook.abbrev(element.text) + '<br>';
-//     });
-// }
-// helped by this: https://stackoverflow.com/questions/37796075/make-a-clickable-array-inside-javascript
-// JSON.parse(localStorage.keyname).length
 function parseNotes() {
   notebook.notes = []
   for (var i = 0; i < window.localStorage.length; i++) {
