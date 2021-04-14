@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function() {
+  let notebook = new Notebook;
 
 function hideForm() {
   document.getElementById("save-note").style.display = "none";
@@ -29,3 +31,4 @@ function abbreviate(textInput){
 function listNote(textInput){
   //textInput >> call abbreviate(textInput) >> save to list id="abbreviated-list"
 }
+});
