@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
 document.getElementById('create-note').addEventListener('click', function (event) {
   showForm();
 });
-
+document.getElementById('submit-note').addEventListener('click', function (event) {
+  saveNote();
+});
 
 function hideForm() {
   document.getElementById("save-note").style.display = "none";
@@ -19,7 +21,8 @@ function saveNote() {
   var titleInput = document.getElementById("titleInput").value;
   var textInput = document.getElementById("textInput").value;
   console.log(titleInput, textInput);
-  printFullNote(titleInput, textInput); //this will be moved and called when the show full note function is called
+  var abText = notebook.abbrev(textInput);
+  printFullNote(titleInput, abText); //this will be moved and called when the show full note function is called
   hideForm();
   //listNote(textInput);
 }
