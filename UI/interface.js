@@ -18,20 +18,25 @@ function showForm() {
 
 
 function saveNote() {
-
   var titleInput = document.getElementById("titleInput").value;
   var textInput = document.getElementById("textInput").value;
   console.log(titleInput, textInput);
-  var abText = notebook.abbrev(textInput);
   notebook.create(titleInput, textInput);
-  printFullNote(abText); //this will be moved and called when the show full note function is called
+  updateNotes(); //this will be moved and called when the show full note function is called
   hideForm();
   //listNote(textInput);
 }
 
-function printFullNote(abText) {
-    document.getElementById("newNote").innerHTML += notebook.notes[notebook.notes.length-1].title + '<br>';
-    document.getElementById("newNote").innerHTML += abText + '<br>';
+function updateNotes () {
+    //var abText = notebook.abbrev(textInput);
+    // clear div html???
+    document.getElementById("newNote").innerHTML = "";
+    notebook.notes.forEach(function(element) {
+      document.getElementById("newNote").innerHTML += notebook.notes[notebook.notes.length-1].title + '<br>';
+      document.getElementById("newNote").innerHTML += notebook.abbrev(notebook.notes[notebook.notes.length-1].text) + '<br>';
+    });
+    //document.getElementById("newNote").innerHTML += notebook.notes[notebook.notes.length-1].title + '<br>';
+    //document.getElementById("newNote").innerHTML += abText + '<br>';
     //document.getElementById("newNote").innerHTML += notebook.notes[notebook.notes.length-1].text + '<br>';
 }
 
@@ -43,3 +48,13 @@ function listNote(textInput){
   //textInput >> call abbreviate(textInput) >> save to list id="abbreviated-list"
 }
 });
+
+
+// 
+// div = document.createElement('div');
+//   div.id = 'container';
+//   div.innerHTML = 'Hi there!';
+//   div.className = 'border pad';
+//
+//   document.body.appendChild(div);
+// }, false);
