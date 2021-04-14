@@ -24,14 +24,15 @@ function saveNote() {
   console.log(titleInput, textInput);
   var abText = notebook.abbrev(textInput);
   notebook.create(titleInput, textInput);
-  printFullNote(titleInput, abText); //this will be moved and called when the show full note function is called
+  printFullNote(abText); //this will be moved and called when the show full note function is called
   hideForm();
   //listNote(textInput);
 }
 
-function printFullNote(titleInput, textInput) {
-  var fullNote = "Title:" + titleInput + ", Text: " + textInput;
-  document.getElementById("newNote").innerHTML = fullNote;
+function printFullNote(abText) {
+    document.getElementById("newNote").innerHTML += notebook.notes[notebook.notes.length-1].title + '<br>';
+    document.getElementById("newNote").innerHTML += abText + '<br>';
+    //document.getElementById("newNote").innerHTML += notebook.notes[notebook.notes.length-1].text + '<br>';
 }
 
 function abbreviate(textInput){
