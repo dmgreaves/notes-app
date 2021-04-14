@@ -41,16 +41,21 @@ function newupdateNotes() {
   document.getElementById("newNote").innerHTML = "";
   notebook.notes.forEach(function(note){
     var div = document.createElement('div');
-    div.textContent = note.title;
-    div.textContent += ": ";
-    div.textContent += note.text;
+    // was div.textContent
+    div.title = note.title;
+    div.title += ": ";
+    div.title += notebook.abbrev(note.text);
+    //div.textContent = note.text;
+    //div.textContent.style.visibility = "hidden";
     noteList.appendChild(div);
   });
 }
 
 noteList.addEventListener('click', function(event){
   if (event.target !== this) {
-    console.log(event.target.textContent);
+    console.log(event.target.title);
+    //title.hide()
+    //textContent.show()
   }
 });
 
