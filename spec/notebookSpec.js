@@ -12,10 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log(err);
     errors.push(err);
   }
-
-
-
-
+  
 // Prints Tests
   let result = test.printTests();
   document.getElementById("id").innerHTML = result;
