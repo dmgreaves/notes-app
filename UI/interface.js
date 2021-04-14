@@ -22,23 +22,37 @@ function saveNote() {
   var textInput = document.getElementById("textInput").value;
   console.log(titleInput, textInput);
   notebook.create(titleInput, textInput);
-  updateNotes(); //this will be moved and called when the show full note function is called
+  newupdateNotes(); //this will be moved and called when the show full note function is called
   hideForm();
   //listNote(textInput);
 }
 
-function updateNotes () {
-    //var abText = notebook.abbrev(textInput);
-    // clear div html???
-    document.getElementById("newNote").innerHTML = "";
-    notebook.notes.forEach(function(element) {
-      document.getElementById("newNote").innerHTML += notebook.notes[notebook.notes.length-1].title + '<br>';
-      document.getElementById("newNote").innerHTML += notebook.abbrev(notebook.notes[notebook.notes.length-1].text) + '<br>';
-    });
-    //document.getElementById("newNote").innerHTML += notebook.notes[notebook.notes.length-1].title + '<br>';
-    //document.getElementById("newNote").innerHTML += abText + '<br>';
-    //document.getElementById("newNote").innerHTML += notebook.notes[notebook.notes.length-1].text + '<br>';
+// function updateNotes () {
+//     document.getElementById("newNote").innerHTML = "";
+//     notebook.notes.forEach(function(element) {
+//       div = document.createElement('div');
+//       document.getElementById(`${num}`).innerHTML += element.title + '<br>';
+//       document.getElementById(`${num}`).innerHTML += notebook.abbrev(element.text) + '<br>';
+//     });
+// }
+var noteList = document.getElementById("newNote");
+// helped by this: https://stackoverflow.com/questions/37796075/make-a-clickable-array-inside-javascript
+function newupdateNotes() {
+  document.getElementById("newNote").innerHTML = "";
+  notebook.notes.forEach(function(note){
+    var div = document.createElement('div');
+    div.textContent = note.title;
+    div.textContent += ": ";
+    div.textContent += note.text;
+    noteList.appendChild(div);
+  });
 }
+
+noteList.addEventListener('click', function(event){
+  if (event.target !== this) {
+    console.log(event.target.textContent);
+  }
+});
 
 function abbreviate(textInput){
   //abbreviates textInput to 20 characters
@@ -50,7 +64,7 @@ function listNote(textInput){
 });
 
 
-// 
+//
 // div = document.createElement('div');
 //   div.id = 'container';
 //   div.innerHTML = 'Hi there!';
