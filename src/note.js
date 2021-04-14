@@ -10,4 +10,5 @@ class Note {
     return this.date.toString().slice(0,15).replaceAll(" ","-")
   }
 
+
 }

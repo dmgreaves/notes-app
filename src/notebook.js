@@ -2,14 +2,13 @@
 class Notebook {
   constructor() {
      this.notes = [];
+     this.result = "";
    }
 
   create(title, text) {
-    let emoji = this.emojify(text)  // why can't we use that string in instantiatng a new note
-    let noteInstance = new Note(title, text = emoji);
+    let noteInstance = new Note(title, text);
     this.notes.push(noteInstance);
-    console.log(this.notes)
-    return noteInstance;
+    console.log(this.notes);
   }
 
   abbrev(text) {
@@ -18,37 +17,22 @@ class Notebook {
 
   //from https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
   async postData(url = '', data = {}) {
-      console.log(2)
-      const response = await fetch(url, {
-        method: 'POST',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        body: JSON.stringify(data)
-      });
-      console.log(4)
-      return response.json();
-    }
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    return response.json();
+  }
 
-    emojify(text) {
-        console.log(1)
-        this.postData('https://makers-emojify.herokuapp.com/', {text: text})
-            .then(data => {
-                console.log(5)
-                console.log(data); // JSON data parsed by `data.json()` call
-                console.log(data.emojified_text);
-                return data.emojified_text;
-            });
-
-        console.log(3)
-    }
+  emojify(title, text) {
+      this.postData('https://makers-emojify.herokuapp.com/', { text: text })
+        .then(data => {
+          let emoji = data.emojified_text;
+          console.log(emoji);
+          this.create(title, emoji);
+        });
+      }
 }
-
-/* We know that emojify is printing the emojified_text at the end
-   We can call emojify in the create function but we do not get a result
-   */
