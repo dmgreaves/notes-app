@@ -14,7 +14,6 @@ document.getElementById('submit-note').addEventListener('click', function (event
 
 
 // DISPLAY EMOJIS ON PAGE
-let notebook = new Notebook();
 //create new note
 notebook.emojify('title',':fire:')
 // display note on page once emoji has loaded
@@ -48,6 +47,7 @@ function parseNotes() {
   notebook.notes = []
   for (var i = 0; i < window.localStorage.length; i++) {
     let noteText = JSON.parse(window.localStorage.getItem(i));
+    // Call emojify?
     notebook.create("", noteText);
   }
 }
@@ -90,4 +90,3 @@ function listNote(textInput){
   //textInput >> call abbreviate(textInput) >> save to list id="abbreviated-list"
 }
 });
-
