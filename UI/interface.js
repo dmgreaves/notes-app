@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+//Might have issues here??
   let notebook = new Notebook;
   var noteList = document.getElementById("newNote");
 
@@ -10,6 +11,17 @@ document.getElementById('create-note').addEventListener('click', function (event
 document.getElementById('submit-note').addEventListener('click', function (event) {
   saveNote();
 });
+
+
+// DISPLAY EMOJIS ON PAGE
+let notebook = new Notebook();
+//create new note
+notebook.emojify('title',':fire:')
+// display note on page once emoji has loaded
+setTimeout(function(){
+  document.getElementById("testing-emojis").innerHTML = notebook.notes[0].text;
+},1000);
+//////////////////////////
 
 function hideForm() {
   document.getElementById("save-note").style.display = "none";
@@ -79,12 +91,3 @@ function listNote(textInput){
 }
 });
 
-
-//
-// div = document.createElement('div');
-//   div.id = 'container';
-//   div.innerHTML = 'Hi there!';
-//   div.className = 'border pad';
-//
-//   document.body.appendChild(div);
-// }, false);
