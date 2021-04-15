@@ -5,8 +5,8 @@ class Notebook {
      this.result = "";
    }
 
-  create(title, text) {
-    let noteInstance = new Note(title, text);
+  create(text) {
+    let noteInstance = new Note(text);
     this.notes.push(noteInstance);
     console.log(this.notes);
 
@@ -33,12 +33,12 @@ class Notebook {
     return response.json();
   }
 
-  emojify(title, text) {
+  emojify(text) {
       this.postData('https://makers-emojify.herokuapp.com/', { text: text })
         .then(data => {
           let emoji = data.emojified_text;
           console.log(emoji);
-          this.create(title, emoji);
+          this.create(emoji);
         });
       }
 

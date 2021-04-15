@@ -15,7 +15,7 @@ document.getElementById('submit-note').addEventListener('click', function (event
 
 // DISPLAY EMOJIS ON PAGE
 //create new note
-notebook.emojify('title',':fire:')
+
 // display note on page once emoji has loaded
 setTimeout(function(){
   document.getElementById("testing-emojis").innerHTML = notebook.notes[0].text;
@@ -32,7 +32,7 @@ function showForm() {
 
 
 function saveNote() {
-  var titleInput = document.getElementById("titleInput").value;
+  // var titleInput = document.getElementById("titleInput").value;
   var textInput = document.getElementById("textInput").value;
   let index = window.localStorage.length;
   window.localStorage.setItem(index, JSON.stringify(textInput));
