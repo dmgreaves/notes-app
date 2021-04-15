@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 //Might have issues here??
   let notebook = new Notebook;
-  var noteList = document.getElementById("full-text");
+  var noteList = document.getElementById("abbreviated-list");
 
   updateNotes();
 
@@ -38,40 +38,46 @@ function saveNote() {
   window.localStorage.setItem(index, JSON.stringify(textInput));
   //console.log(titleInput, textInput);
   //console.log(window.localStorage.getItem(index));
-  notebook.emojify(textInput);
+  // notebook.emojify(textInput);
   updateNotes(); //this will be moved and called when the show full note function is called
   hideForm();
   //listNote(textInput);
 }
 function parseNotes() {
-    console.log("Parse notes")
+    console.log(2);
     notebook.notes = []
     for (var i = 0; i < window.localStorage.length; i++) {
       let noteText = JSON.parse(window.localStorage.getItem(i));
       // Call emojify?
       notebook.emojify(noteText);
+      console.log(3);
+      console.log("-----");
+      console.log(window.localStorage.length);
     }
     setTimeout(function(){
       printNotesInDivs();
-    }, 2000);
+    }, 500);
+    console.log(4);
 }
 
 function updateNotes() {
+  console.log(1);
     parseNotes();
     console.log(noteList.innerHTML);
 }
 
 function printNotesInDivs() {
+  console.log(5);
   noteList.innerHTML = "";
-  console.log(notebook.notes)
   notebook.notes.forEach(function(note){
-    console.log("Updating")
+    console.log(6)
     var div = document.createElement('div');
     console.log(note.text);
     div.textContent += notebook.abbrev(note.text);
     div.title = note.text;
     noteList.appendChild(div);
   });
+  console.log(7);
 }
 
 noteList.addEventListener('click', function(event){
