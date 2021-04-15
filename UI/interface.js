@@ -1,4 +1,13 @@
-
+document.addEventListener("DOMContentLoaded", function() {
+// DISPLAY EMOJIS ON PAGE
+let notebook = new Notebook();
+//create new note
+notebook.emojify('title',':fire:')
+// display note on page once emoji has loaded
+setTimeout(function(){
+  document.getElementById("testing-emojis").innerHTML = notebook.notes[0].text;
+},1000);
+//////////////////////////
 function hideForm() {
   document.getElementById("save-note").style.display = "none";
 }
@@ -29,3 +38,4 @@ function abbreviate(textInput){
 function listNote(textInput){
   //textInput >> call abbreviate(textInput) >> save to list id="abbreviated-list"
 }
+});
