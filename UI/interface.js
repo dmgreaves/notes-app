@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 //Might have issues here??
   let notebook = new Notebook;
-  var noteList = document.getElementById("newNote");
+  var noteList = document.getElementById("full-text");
 
   updateNotes();
 
@@ -44,28 +44,34 @@ function saveNote() {
   //listNote(textInput);
 }
 function parseNotes() {
-  notebook.notes = []
-  for (var i = 0; i < window.localStorage.length; i++) {
-    let noteText = JSON.parse(window.localStorage.getItem(i));
-    // Call emojify?
-    notebook.emojify(noteText);
-  }
+    console.log("Parse notes")
+    notebook.notes = []
+    for (var i = 0; i < window.localStorage.length; i++) {
+      let noteText = JSON.parse(window.localStorage.getItem(i));
+      // Call emojify?
+      notebook.emojify(noteText);
+    }
+    setTimeout(function(){
+      printNotesInDivs();
+    }, 2000);
 }
 
 function updateNotes() {
-  setTimeout(function(){
     parseNotes();
-    noteList.innerHTML = "";
-    notebook.notes.forEach(function(note){
-      var div = document.createElement('div');
-      console.log("Updating")
-      console.log(note.text);
-      div.textContent += notebook.abbrev(note.text);
-      div.title = note.text;
-      noteList.appendChild(div);
-    });
     console.log(noteList.innerHTML);
-  },1000);
+}
+
+function printNotesInDivs() {
+  noteList.innerHTML = "";
+  console.log(notebook.notes)
+  notebook.notes.forEach(function(note){
+    console.log("Updating")
+    var div = document.createElement('div');
+    console.log(note.text);
+    div.textContent += notebook.abbrev(note.text);
+    div.title = note.text;
+    noteList.appendChild(div);
+  });
 }
 
 noteList.addEventListener('click', function(event){

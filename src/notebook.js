@@ -8,10 +8,9 @@ class Notebook {
   create(text) {
     let noteInstance = new Note(text);
     this.notes.push(noteInstance);
-    console.log(this.notes);
-
     return noteInstance;
-
+    console.log("within notebook")
+    console.log(this.notes)
   }
 
   abbrev(text) {
@@ -35,9 +34,12 @@ class Notebook {
       this.postData('https://makers-emojify.herokuapp.com/', { text: text })
         .then(data => {
           let emoji = data.emojified_text;
-          console.log(emoji);
+          //console.log(emoji);
           this.create(emoji);
+          console.log("in emojify")
         });
+        console.log("outside in emojify")
+
       }
 
 }
