@@ -60,7 +60,7 @@ function updateNotes() {
     div.textContent = note.title;
     console.log("Updating")
     console.log(note.text);
-    div.textContent += ": ";
+    // div.textContent += ": ";
     div.textContent += notebook.abbrev(note.text);
     div.title = note.text;
     noteList.appendChild(div);
