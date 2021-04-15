@@ -73,12 +73,16 @@ noteList.addEventListener('click', function(event){
      console.log(event.target.textContent);
      console.log(event.target.title);
      document.getElementById("full-text").innerHTML = event.target.title;
+     // console.log("HIDE NOTES");
+     hideNotes();
      }
    });
 
-document.getElementById("return-button").addEventListener('click', function(event){
-    location.reload();
+document.getElementById("allNote-button").addEventListener('click', function(event){
+    // location.reload();
      updateNotes();
+     showNotes();
+     hideFullNote();
  });
     //event.target.style.visibility = "hidden";
 
@@ -89,4 +93,17 @@ document.getElementById("return-button").addEventListener('click', function(even
 function listNote(textInput){
   //textInput >> call abbreviate(textInput) >> save to list id="abbreviated-list"
 }
+
+function hideNotes() {
+  document.getElementById("abbreviated-list").style.display = "none";
+  // document.getElementById("allNote-button").style.display = "block";
+};
+function showNotes() {
+  document.getElementById("abbreviated-list").style.display = "block";
+  // document.getElementById("allNote-button").style.display = "block";
+};
+function hideFullNote() {
+  document.getElementById("full-text").style.display = "none";
+  // document.getElementById("allNote-button").style.display = "none";
+};
 });
