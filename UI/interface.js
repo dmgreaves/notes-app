@@ -79,10 +79,14 @@ noteList.addEventListener('click', function(event){
    });
 
 document.getElementById("allNote-button").addEventListener('click', function(event){
+    
+    updateNotes();  
+    console.log(document.getElementById("full-text").innerHTML)
     // location.reload();
-     updateNotes();
-     showNotes();
-     hideFullNote();
+    //console.log(document.getElementById("full-text").style.display)
+    hideFullNote();
+    showNotes();
+    
  });
     //event.target.style.visibility = "hidden";
 
