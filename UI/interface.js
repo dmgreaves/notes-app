@@ -17,9 +17,9 @@ document.getElementById('submit-note').addEventListener('click', function (event
 //create new note
 
 // display note on page once emoji has loaded
-setTimeout(function(){
-  document.getElementById("testing-emojis").innerHTML = notebook.notes[0].text;
-},1000);
+// setTimeout(function(){
+//   document.getElementById("testing-emojis").innerHTML = notebook.notes[0].text;
+// },1000);
 //////////////////////////
 
 function hideForm() {
@@ -38,7 +38,7 @@ function saveNote() {
   window.localStorage.setItem(index, JSON.stringify(textInput));
   //console.log(titleInput, textInput);
   //console.log(window.localStorage.getItem(index));
-  notebook.create(titleInput, textInput);
+  notebook.emojify(textInput);
   updateNotes(); //this will be moved and called when the show full note function is called
   hideForm();
   //listNote(textInput);
@@ -48,24 +48,24 @@ function parseNotes() {
   for (var i = 0; i < window.localStorage.length; i++) {
     let noteText = JSON.parse(window.localStorage.getItem(i));
     // Call emojify?
-    notebook.create("", noteText);
+    notebook.emojify(noteText);
   }
 }
 
 function updateNotes() {
-  parseNotes();
-  noteList.innerHTML = "";
-  notebook.notes.forEach(function(note){
-    var div = document.createElement('div');
-    div.textContent = note.title;
-    console.log("Updating")
-    console.log(note.text);
-    div.textContent += ": ";
-    div.textContent += notebook.abbrev(note.text);
-    div.title = note.text;
-    noteList.appendChild(div);
-  });
-  console.log(noteList.innerHTML);
+  setTimeout(function(){
+    parseNotes();
+    noteList.innerHTML = "";
+    notebook.notes.forEach(function(note){
+      var div = document.createElement('div');
+      console.log("Updating")
+      console.log(note.text);
+      div.textContent += notebook.abbrev(note.text);
+      div.title = note.text;
+      noteList.appendChild(div);
+    });
+    console.log(noteList.innerHTML);
+  },1000);
 }
 
 noteList.addEventListener('click', function(event){
