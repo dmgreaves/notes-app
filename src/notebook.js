@@ -9,11 +9,17 @@ class Notebook {
     let noteInstance = new Note(title, text);
     this.notes.push(noteInstance);
     console.log(this.notes);
+
+    return noteInstance;
+
   }
 
   abbrev(text) {
     return text.slice(0,17) + "...";
   }
+
+
+
 
   //from https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
   async postData(url = '', data = {}) {
@@ -35,4 +41,5 @@ class Notebook {
           this.create(title, emoji);
         });
       }
+
 }

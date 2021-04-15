@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
+//Might have issues here??
+  let notebook = new Notebook;
+  var noteList = document.getElementById("newNote");
+
+  updateNotes();
+
+document.getElementById('create-note').addEventListener('click', function (event) {
+  showForm();
+});
+document.getElementById('submit-note').addEventListener('click', function (event) {
+  saveNote();
+});
+
+
 // DISPLAY EMOJIS ON PAGE
 let notebook = new Notebook();
 //create new note
@@ -8,6 +22,7 @@ setTimeout(function(){
   document.getElementById("testing-emojis").innerHTML = notebook.notes[0].text;
 },1000);
 //////////////////////////
+
 function hideForm() {
   document.getElementById("save-note").style.display = "none";
 }
@@ -20,22 +35,59 @@ function showForm() {
 function saveNote() {
   var titleInput = document.getElementById("titleInput").value;
   var textInput = document.getElementById("textInput").value;
-  console.log(titleInput, textInput);
-  printFullNote(titleInput, textInput); //this will be moved and called when the show full note function is called
+  let index = window.localStorage.length;
+  window.localStorage.setItem(index, JSON.stringify(textInput));
+  //console.log(titleInput, textInput);
+  //console.log(window.localStorage.getItem(index));
+  notebook.create(titleInput, textInput);
+  updateNotes(); //this will be moved and called when the show full note function is called
   hideForm();
   //listNote(textInput);
 }
-
-function printFullNote(titleInput, textInput) {
-  var fullNote = "Title:" + titleInput + ", Text: " + textInput;
-  document.getElementById("newNote").innerHTML = fullNote;
+function parseNotes() {
+  notebook.notes = []
+  for (var i = 0; i < window.localStorage.length; i++) {
+    let noteText = JSON.parse(window.localStorage.getItem(i));
+    notebook.create("", noteText);
+  }
 }
 
-function abbreviate(textInput){
-  //abbreviates textInput to 20 characters
+function updateNotes() {
+  parseNotes();
+  noteList.innerHTML = "";
+  notebook.notes.forEach(function(note){
+    var div = document.createElement('div');
+    div.textContent = note.title;
+    console.log("Updating")
+    console.log(note.text);
+    div.textContent += ": ";
+    div.textContent += notebook.abbrev(note.text);
+    div.title = note.text;
+    noteList.appendChild(div);
+  });
+  console.log(noteList.innerHTML);
 }
+
+noteList.addEventListener('click', function(event){
+   if (event.target !== this) {
+     console.log(event.target.textContent);
+     console.log(event.target.title);
+     document.getElementById("full-text").innerHTML = event.target.title;
+     }
+   });
+
+document.getElementById("return-button").addEventListener('click', function(event){
+    location.reload();
+     updateNotes();
+ });
+    //event.target.style.visibility = "hidden";
+
+    // hide all the other div elements on the page (might need a container)
+    // set a div container temporarily to the text of the event.target.title
+    // show that div container
 
 function listNote(textInput){
   //textInput >> call abbreviate(textInput) >> save to list id="abbreviated-list"
 }
 });
+

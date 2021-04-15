@@ -1,5 +1,6 @@
 
 class Note {
+
   constructor(title, text, date = new Date()){
     this.text = text;
     this.title = title;
