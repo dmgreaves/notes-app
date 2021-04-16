@@ -5,20 +5,17 @@ class Notebook {
      this.result = "";
    }
 
-  create(title, text) {
-    let noteInstance = new Note(title, text);
+  create(text) {
+    let noteInstance = new Note(text);
     this.notes.push(noteInstance);
-    console.log(this.notes);
-
     return noteInstance;
-
+    console.log("within notebook")
+    console.log(this.notes)
   }
 
   abbrev(text) {
     return text.slice(0,17) + "...";
   }
-
-
 
 
   //from https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
@@ -33,13 +30,16 @@ class Notebook {
     return response.json();
   }
 
-  emojify(title, text) {
+  emojify(text) {
       this.postData('https://makers-emojify.herokuapp.com/', { text: text })
         .then(data => {
           let emoji = data.emojified_text;
-          console.log(emoji);
-          this.create(title, emoji);
+          //console.log(emoji);
+          this.create(emoji);
+          console.log("in emojify")
         });
+        console.log("outside in emojify")
+
       }
 
 }

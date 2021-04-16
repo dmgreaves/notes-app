@@ -23,11 +23,13 @@
 
   <div id="new-note">
     <button type="button" id="create-note"> Parrot something ... </button>
-    <form hidden id="save-note">
-      <input type="text" id="titleInput" placeholder="Title">
-      <input type="text" id="textInput" placeholder="What would a parrot say...?" size="100" >
+    <!-- <form hidden id="save-note"> -->
+    <div hidden id="save-note">
+      <textarea id="textInput" size="100" >What would a parrot say...?</textarea>
+      <!-- <input type="text" id="textInput" placeholder="What would a parrot say...?" size="100" > -->
       <button type="button" id="submit-note" value="Save parrot" > Save Parrot</button>
-    </form>
+    </div>
+    <!-- </form> -->
   </div>
 
   <h2>The Parrots</h2>
@@ -43,9 +45,6 @@
 
 
   <!-- <div id="testing-emojis"></div> -->
-
-
-
 
 </body>
 </html>
