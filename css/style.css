@@ -3,11 +3,13 @@ header {
 }
 
 body {
-
+  font-family: 'Give You Glory', cursive;
+  text-align: center;
 }
 
 li {
   cursor: pointer;
+  font-family: 'Give You Glory', cursive;
 }
 
 p {
