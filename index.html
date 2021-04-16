@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="css/style.css" type="text/css" rel="stylesheet" />
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="UI/interface.js" defer ></script>
+  <script src="src/notebook.js" defer ></script>
+  <script src="src/note.js" defer ></script>
+  <img src="Rio.jpg" alt="parrot-taking-note">
+
+  <title>Rio's Pieces of Eight</title>
+</head>
+<body>
+  <header>
+  <h1>Rio's Pieces of Eight</h1>
+  </header>
+
+  <div id="new-note">
+    <button type="button" id="create-note"> Parrot something ... </button>
+    <div hidden id="save-note">
+      <textarea id="textInput" size="100" >What would a parrot say...?</textarea>
+      <button type="button" id="submit-note" value="Save parrot" > Save Parrot</button>
+    </div>
+  </div>
+
+  <h2>The Parrots</h2>
+
+  <div id="abbreviated-list">
+      <p id="newNote"></p>
+  </div>
+
+  <div id="full-text">
+  </div>
+
+  <button type="button" id="allNote-button"> All Notes </button>
+
+</body>
+</html>

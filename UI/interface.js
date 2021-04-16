@@ -68,10 +68,10 @@ function printNotesInDivs() {
   noteList.innerHTML = "";
   notebook.notes.forEach(function(note){
     console.log(6)
-    var div = document.createElement('div');
-    div.setAttribute("id", notebook.notes.indexOf(note))
-    div.textContent += notebook.abbrev(note.text);
-    noteList.appendChild(div);
+    var list = document.createElement('LI');
+    list.setAttribute("id", notebook.notes.indexOf(note))
+    list.textContent += notebook.abbrev(note.text);
+    noteList.appendChild(list);
   });
 }
 
