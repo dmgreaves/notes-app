@@ -1,13 +1,17 @@
 header {
-  
+
 }
 
 body {
 
 }
 
+li {
+  cursor: pointer;
+}
+
 p {
-  
+
 }
 
 #new-note {
